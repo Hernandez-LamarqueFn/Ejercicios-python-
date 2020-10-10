@@ -1,0 +1,35 @@
+#Retornar el promedio de los elementos de una lista.
+import random
+ 
+def modaLista(lista):
+    aux = 0
+    cont = 0
+    moda = -1
+    lista.sort(cmp=None, key=None, reverse=False)
+    for i in range(0,len(lista)-1):
+        if (lista[i] == lista[i+1]):
+            cont = cont + 1
+            if cont >= aux:
+                aux = cont
+                moda = lista[i]
+        else:
+            cont=0
+ 
+    return moda
+ 
+def imprimirLista(lista,nombre):
+    for i in range(0,len(lista)):
+        print nombre + "[" + str(i) + "]=" + str(lista[i])
+ 
+def leerLista():
+    lista=[]
+ 
+    i=0
+    while i < 10:
+        lista.append(int(random.randint(0, 5)))
+        i=i+1
+    return lista
+ 
+A=leerLista()
+imprimirLista(A,"A")
+print "Moda: " + str(modaLista(A))
